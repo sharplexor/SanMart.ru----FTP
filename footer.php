@@ -78,7 +78,7 @@
                                     href="tel:84952155319">8-495-215-53-19</a>
                               </li>
                               <li class="menu-footer__item">
-                                 <p class="menu-footer__link _icon-footer-clock">Пн-Пт<br>9.00 - 20.00 (МСК)</p>
+                                 <p class="menu-footer__link _icon-footer-clock">Пн-Пт<br>10.00 - 20.00 (МСК)</p>
                               </li>
                               <li class="menu-footer__item">
                                  <a class="menu-footer__link _icon-footer-mail"
@@ -109,7 +109,7 @@
                      <form class="spoller-item-footer__body footer-subscribe" action="">
                         <div class="footer-subscribe__line">
                            <input class="footer-subscribe__input" id="subscribe-input" autocomplete="off" type="text"
-                              name="form[]" data-error="Неправильный э-мейл" data-required="email"
+                              name="form[]" data-error="Неправильный e-mail" data-required="email"
                               placeholder="Ваш e-mail">
                            <button class="footer-subscribe__button _icon-arrow-right" type="submit"></button>
                         </div>

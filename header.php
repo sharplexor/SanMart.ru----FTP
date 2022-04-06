@@ -49,6 +49,9 @@
                   </form>
                </div>
                <div class="body-header__actions actions-header">
+                  <div class="actions-header__shedule _icon-footer-clock">
+                     <div class="actions-header__clock">Пн-Пт<span>10.00 - 20.00</span></div>
+                  </div>
                   <a class="actions-header__location _icon-location" href="">Красногорск</a>
                   <div class="actions-header__phones" data-da=".top-header__container, 991.98, first">
                      <a class="actions-header__phone" href="tel:84952155319"><span>8-495-215-53-19</span></a>
