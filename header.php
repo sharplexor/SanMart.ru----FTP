@@ -18,7 +18,8 @@
                <nav class="top-header__menu menu-top-header">
                   <ul class="menu-top-header__list" data-da=".menu__body, 991.98">
                      <li class="menu-top-header__item menu-top-header__item_catalog">
-                        <a class="menu-top-header__link menu-top-header__link_catalog _icon-arrow-right" href="">Каталог
+                        <a class="menu-top-header__link menu-top-header__link_catalog _icon-arrow-right"
+                           href="http://sanmart.ffox.site/catalog/">Каталог
                            товаров</a>
                      </li>
                      <li class="menu-top-header__item"><a href="" class="menu-top-header__link">О нас</a></li>
@@ -75,7 +76,8 @@
                <nav class="catalog-header__menu menu-catalog">
                   <button class="menu-catalog__back _icon-arrow-back" type="button">Назад</button>
                   <ul class="menu-catalog__list">
-                     <li class="menu-catalog__item"><a href="" class="menu-catalog__link">Весь каталог</a></li>
+                     <li class="menu-catalog__item"><a href="http://sanmart.ffox.site/catalog/"
+                           class="menu-catalog__link">Весь каталог</a></li>
                      <li class="menu-catalog__item"><button data-parent="1"
                            class="menu-catalog__link">Керамогранит</button>
                      </li>

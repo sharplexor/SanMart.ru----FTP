@@ -61,3 +61,26 @@ if (function_exists('acf_add_options_page')) {
         'redirect' => false,
     ));
 }
+
+/* Поддержка WooCommerce */
+function mytheme_add_woocommerce_support()
+{
+    add_theme_support('woocommerce');
+}
+add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
+
+/* Перенос css WooCommerce в файл шаблона */
+function woo_style()
+{
+    wp_register_style('my-woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce.css', null, 1.0, 'screen');
+    wp_enqueue_style('my-woocommerce');}add_action('wp_enqueue_scripts', 'woo_style');
+
+function woo2_style()
+{
+    wp_register_style('my-woocommerce-layout', get_template_directory_uri() . '/woocommerce/css/woocommerce-layout.css', null, 1.0, 'screen');
+    wp_enqueue_style('my-woocommerce-layout');}add_action('wp_enqueue_scripts', 'woo2_style');
+
+/* Реализация дробных цен, кратность упаковок */
+
+/* Редактор Плагинов */
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
