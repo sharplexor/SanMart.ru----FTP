@@ -94,3 +94,18 @@ add_theme_support('wc-product-gallery-slider');
 
 /* Отключение хлебных крошек WooCommerce*/
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
+/* Скрываем опредленные категории товаров WooСommerce*/
+add_filter('get_terms', 'ts_get_subcategory_terms', 10, 3);
+function ts_get_subcategory_terms($terms, $taxonomies, $args)
+{
+    $new_terms = array();
+    if (in_array('product_cat', $taxonomies) && !is_admin() && is_shop()) {
+        foreach ($terms as $key => $term) {
+            if (!in_array($term->slug, array('plitka-pod-mramor', 'all-products'))) { //ваш слаг категории
+                $new_terms[] = $term;
+            }}
+        $terms = $new_terms;
+    }
+    return $terms;
+}

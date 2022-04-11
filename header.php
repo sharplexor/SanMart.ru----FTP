@@ -39,7 +39,7 @@
          </div>
          <div class="header__body body-header">
             <div class="body-header__container">
-               <a class="body-header__logo" href="">
+               <a class="body-header__logo" href="http://sanmart.ffox.site/">
                   <img src="<?php bloginfo('template_url');?>/assets/img/logo.svg" alt="Лого SanMart">
                </a>
                <div class="body-header__search" data-da=".catalog-header__container, 479.98">
@@ -78,11 +78,11 @@
                   <ul class="menu-catalog__list">
                      <li class="menu-catalog__item"><a href="http://sanmart.ffox.site/catalog/"
                            class="menu-catalog__link">Весь каталог</a></li>
-                     <li class="menu-catalog__item"><button data-parent="1"
-                           class="menu-catalog__link">Керамогранит</button>
+                     <li class="menu-catalog__item"><button data-parent="1" class="menu-catalog__link">Керамогранит<span
+                              data-da=".blocks-off, 991.98"></span></button>
                      </li>
                      <li class="menu-catalog__item"><button data-parent="2" class="menu-catalog__link">Керамическая
-                           плитка</button></li>
+                           плитка<span data-da=".blocks-off, 991.98"></span></button></li>
                      <li class="menu-catalog__item"><a href="" class="menu-catalog__link">Крупный формат</a></li>
                      <li class="menu-catalog__item"><a href="" class="menu-catalog__link">Декор</a></li>
                      <li class="menu-catalog__item"><a href="" class="menu-catalog__link">Мозаика</a></li>
@@ -177,7 +177,8 @@
                            <div class="sub-menu-catalog__column">
                               <div class="sub-menu-catalog__category">Дизайн</div>
                               <ul class="sub-menu-catalog__list">
-                                 <li class="sub-menu-catalog__item"><a class="sub-menu-catalog__link" href="">Мрамор</a>
+                                 <li class="sub-menu-catalog__item"><a class="sub-menu-catalog__link"
+                                       href="http://sanmart.ffox.site/product-category/plitka-pod-mramor/">Мрамор</a>
                                  </li>
                                  <li class="sub-menu-catalog__item"><a class="sub-menu-catalog__link" href="">Камень</a>
                                  </li>
@@ -301,7 +302,8 @@
                            <div class="sub-menu-catalog__column">
                               <div class="sub-menu-catalog__category">Дизайн</div>
                               <ul class="sub-menu-catalog__list">
-                                 <li class="sub-menu-catalog__item"><a class="sub-menu-catalog__link" href="">Мрамор</a>
+                                 <li class="sub-menu-catalog__item"><a class="sub-menu-catalog__link"
+                                       href="http://sanmart.ffox.site/product-category/plitka-pod-mramor/">Мрамор</a>
                                  </li>
                                  <li class="sub-menu-catalog__item"><a class="sub-menu-catalog__link" href="">Камень</a>
                                  </li>

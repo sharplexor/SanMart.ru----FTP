@@ -243,12 +243,12 @@ h6 {
     margin-bottom: 1.25rem;
   }
 }
-@media (min-width: 101.875em) {
+@media (min-width: 61.99875em) and (min-width: 101.875em) {
   body .page {
     margin-top: 1.875rem;
   }
 }
-@media (min-width: 20em) and (max-width: 101.875em) {
+@media (min-width: 61.99875em) and (min-width: 20em) and (max-width: 101.875em) {
   @supports (margin-top: clamp( 1.25rem , 1.0973282443rem  +  0.7633587786vw , 1.875rem )) {
     body .page {
       margin-top: clamp( 1.25rem , 1.0973282443rem  +  0.7633587786vw , 1.875rem );
@@ -260,7 +260,7 @@ h6 {
     }
   }
 }
-@media (max-width: 20em) {
+@media (min-width: 61.99875em) and (max-width: 20em) {
   body .page {
     margin-top: 1.25rem;
   }
@@ -1241,12 +1241,56 @@ body::after {
   }
 }
 @media (min-width: 61.99875em) {
+  .menu-catalog__link span::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: calc(100% - 16px);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #FF9614;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+    z-index: 10;
+  }
+  .menu-catalog__link span::before {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    right: calc(100% - 16px);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #FF9614;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+    z-index: 10;
+  }
   .menu-catalog__link._sub-menu-active {
     color: #FF9614;
   }
   .menu-catalog__link._sub-menu-active::after {
     opacity: 1;
     visibility: visible;
+  }
+  .menu-catalog__link._sub-menu-active span::after {
+    content: "";
+    left: 50%;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+  }
+  .menu-catalog__link._sub-menu-active span::before {
+    content: "";
+    right: 50%;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
   }
 }
 .menu-catalog__sub-menu {
@@ -1311,8 +1355,12 @@ body::after {
   }
 }
 .sub-menu-catalog__container {
-  background-color: #323b3c;
   padding: 0;
+}
+@media (min-width: 61.99875em) {
+  .sub-menu-catalog__container {
+    background-color: #293031;
+  }
 }
 .sub-menu-catalog__column {
   display: flex;
