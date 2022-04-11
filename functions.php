@@ -49,6 +49,7 @@ add_action('init', 'pss_disable_emoji');
 add_action('wp_enqueue_scripts', 'wpassist_remove_block_library_css');
 add_action('wp_enqueue_scripts', 'remove_global_styles');
 
+/* ОПЦИОНАЛЬНО */
 /* Свои функции */
 
 /* Добавление в Админ-панель "Настройки темы" для ACF*/
@@ -63,24 +64,33 @@ if (function_exists('acf_add_options_page')) {
 }
 
 /* Поддержка WooCommerce */
-function mytheme_add_woocommerce_support()
+add_action('after_setup_theme', 'mywoo_add_woocommerce_support');
+function mywoo_add_woocommerce_support()
 {
     add_theme_support('woocommerce');
 }
-add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
+
+/* Отключение блок стилей WooCommerce*/
+function themesharbor_disable_woocommerce_block_styles()
+{
+    wp_dequeue_style('wc-blocks-style');
+}
+add_action('wp_enqueue_scripts', 'themesharbor_disable_woocommerce_block_styles');
+
+/* Полное отключение стилей WooCommerce */
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 /* Перенос css WooCommerce в файл шаблона */
 function woo_style()
 {
     wp_register_style('my-woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce.css', null, 1.0, 'screen');
-    wp_enqueue_style('my-woocommerce');}add_action('wp_enqueue_scripts', 'woo_style');
+    wp_enqueue_style('my-woocommerce');
+}
+add_action('wp_enqueue_scripts', 'woo_style');
 
-function woo2_style()
-{
-    wp_register_style('my-woocommerce-layout', get_template_directory_uri() . '/woocommerce/css/woocommerce-layout.css', null, 1.0, 'screen');
-    wp_enqueue_style('my-woocommerce-layout');}add_action('wp_enqueue_scripts', 'woo2_style');
+/* Поддержка Swipe Lightbox WooCommerce */
+add_theme_support('wc-product-gallery-lightbox');
+add_theme_support('wc-product-gallery-slider');
 
-/* Реализация дробных цен, кратность упаковок */
-
-/* Редактор Плагинов */
+/* Отключение хлебных крошек WooCommerce*/
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
