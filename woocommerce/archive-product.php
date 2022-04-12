@@ -30,13 +30,6 @@ get_header();
 ?>
 <main class="page wcpage wcpage__archive">
    <div class="wcpage__archive __container">
-      <div class="sanmart-custom__breadcrumbs">
-         <?php
-if (function_exists('yoast_breadcrumb')) {
-    yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-}
-?>
-      </div>
       <header class="woocommerce-products-header">
          <?php if (apply_filters('woocommerce_show_page_title', true)): ?>
          <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title();?></h1>

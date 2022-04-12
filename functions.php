@@ -92,9 +92,6 @@ add_action('wp_enqueue_scripts', 'woo_style');
 add_theme_support('wc-product-gallery-lightbox');
 add_theme_support('wc-product-gallery-slider');
 
-/* Отключение хлебных крошек WooCommerce*/
-remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
-
 /* Скрываем опредленные категории товаров WooСommerce*/
 add_filter('get_terms', 'ts_get_subcategory_terms', 10, 3);
 function ts_get_subcategory_terms($terms, $taxonomies, $args)
