@@ -175,7 +175,7 @@
                               </ul>
                            </div>
                            <div class="sub-menu-catalog__column">
-                              <div class="sub-menu-catalog__category">Дизайн</div>
+                              <div class="sub-menu-catalog__category">Диза</div>
                               <ul class="sub-menu-catalog__list">
                                  <li class="sub-menu-catalog__item"><a class="sub-menu-catalog__link"
                                        href="http://sanmart.ffox.site/product-category/plitka-pod-mramor/">Мрамор</a>
