@@ -106,3 +106,25 @@ function ts_get_subcategory_terms($terms, $taxonomies, $args)
     }
     return $terms;
 }
+
+/* Добавляем атрибуты alt и title к картинкам товаров WooCommerce */
+add_filter('wp_get_attachment_image_attributes', 'change_attachement_image_attributes', 20, 2);
+
+function change_attachement_image_attributes($attr, $attachment)
+{
+
+    $parent = get_post_field('post_parent', $attachment);
+
+    // Получаем тип записи, чтобы проверить не продукт ли это
+    $type = get_post_field('post_type', $parent);
+    if ($type != 'product') {
+        return $attr;
+    }
+
+    $title = get_post_field('post_title', $parent);
+
+    $attr['alt'] = $title;
+    $attr['title'] = $title;
+
+    return $attr;
+}
