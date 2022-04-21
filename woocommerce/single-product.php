@@ -21,8 +21,8 @@ if (!defined('ABSPATH')) {
 
 get_header();?>
 
-<main class="page wcpage wcpage__single">
-   <div class="wcpage__single __container">
+<main class="page wcpage">
+   <section class="wcpage-single wcpage-single__box __container">
       <?php
 /**
  * woocommerce_before_main_content hook.
@@ -49,7 +49,7 @@ do_action('woocommerce_before_main_content');
 
 do_action('woocommerce_after_main_content');
 ?>
-   </div>
+   </section>
 </main>
 
 <?php

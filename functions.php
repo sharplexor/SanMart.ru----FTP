@@ -128,3 +128,24 @@ function change_attachement_image_attributes($attr, $attachment)
 
     return $attr;
 }
+
+/* Меняем разделитель хлебных крошек WooCommerce*/
+add_filter('woocommerce_breadcrumb_defaults', 'true_woo_breadcrumbs_delimiter');
+
+function true_woo_breadcrumbs_delimiter($defaults)
+{
+
+    $defaults['delimiter'] = '&nbsp;&rarr;&nbsp;';
+    // меняем на неразрывные пробелы со стрелкой
+
+    return $defaults;
+
+}
+
+/* ФУНКЦИИ WooCommerce */
+/* Удаление */
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+/* Добавление */
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 6);
+add_action('woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 40);
