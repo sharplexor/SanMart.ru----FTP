@@ -52,6 +52,46 @@ do_action('woocommerce_after_main_content');
    </section>
 </main>
 
+<script>
+/* Замена названия страны. Флаг + Страна */
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Италия/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/it.svg" alt="Флаг Италия">Италия'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Германия/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/de.svg" alt="Флаг Германия">Германия'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Индия/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/in.svg" alt="Флаг Индия">Индия'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Испания/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/es.svg" alt="Флаг Испания">Испания'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Китай/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/cn.svg" alt="Флаг Китай">Китай'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Португалия/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/pt.svg" alt="Флаг Португалия">Португалия'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Россия/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/ru.svg" alt="Флаг Россия">Россия'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /Турция/g,
+   '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/tr.svg" alt="Флаг Турция">Турция'
+);
+
+/* Декор нулей у рубля по тегам*/
+document.getElementsByTagName("bdi")[0].innerHTML = document.getElementsByTagName("bdi")[0].innerHTML.replace(/.00/g,
+   '<span class="wcpage-single__zero">.00</span>');
+</script>
+
 <?php
 get_footer();
 
