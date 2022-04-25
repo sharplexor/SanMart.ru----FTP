@@ -87,6 +87,17 @@ document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagN
    '<img class="flag-icon" src="<?php bloginfo('template_url');?>/assets/img/flags/tr.svg" alt="Флаг Турция">Турция'
 );
 
+/* Корректировка характеристик */
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /kg/g, 'кг'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /cm/g, 'см'
+);
+document.getElementsByTagName("table")[0].innerHTML = document.getElementsByTagName("table")[0].innerHTML.replace(
+   /,/g, ' |'
+);
+
 /* Декор нулей у рубля по тегам*/
 document.getElementsByTagName("bdi")[0].innerHTML = document.getElementsByTagName("bdi")[0].innerHTML.replace(/.00/g,
    '<span class="wcpage-single__zero">.00</span>');
