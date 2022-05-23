@@ -146,6 +146,30 @@ function true_woo_breadcrumbs_delimiter($defaults)
 /* Удаление */
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_filter('woocommerce_product_loop_start', 'woocommerce_maybe_show_product_subcategories');
 /* Добавление */
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 6);
 add_action('woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 40);
+add_action('woocommerce_before_shop_loop', 'woocustom_show_categories', 40);
+add_action('woocommerce_shop_loop_item_title', 'woocustom_loop_sku', 20);
+
+/* Делаем обертки к сетке архива (Коллекция-Продукт) */
+function woocustom_show_categories()
+{
+    woocommerce_product_loop_start();
+    echo woocommerce_maybe_show_product_subcategories();
+    woocommerce_product_loop_end();
+}
+
+/* Артикул в мини-карточке */
+function woocustom_loop_sku()
+{
+    global $product;
+
+    if (wc_product_sku_enabled() && ($product->get_sku() || $product->is_type('variable'))) {
+        ?>
+<span class="sku_wrapper"><?php esc_html_e('SKU:', 'woocommerce');?> <span
+      class="sku"><?php echo ($sku = $product->get_sku()) ? $sku : esc_html__('N/A', 'woocommerce'); ?></span></span>
+<?php
+}
+}
