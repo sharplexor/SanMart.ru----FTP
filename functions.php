@@ -150,16 +150,7 @@ remove_filter('woocommerce_product_loop_start', 'woocommerce_maybe_show_product_
 /* Добавление */
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 6);
 add_action('woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 40);
-add_action('woocommerce_before_shop_loop', 'woocustom_show_categories', 40);
 add_action('woocommerce_shop_loop_item_title', 'woocustom_loop_sku', 20);
-
-/* Делаем обертки к сетке архива (Коллекция-Продукт) */
-function woocustom_show_categories()
-{
-    woocommerce_product_loop_start();
-    echo woocommerce_maybe_show_product_subcategories();
-    woocommerce_product_loop_end();
-}
 
 /* Артикул в мини-карточке */
 function woocustom_loop_sku()
@@ -174,4 +165,40 @@ function woocustom_loop_sku()
 }
 }
 
-/* Разбивка классов Категория-Подкатегория-и тд. */
+// Move WooCommerce subcategory list items into heir own <ul> separate from the product <ul>
+add_action('init', 'move_subcat_lis');
+
+function move_subcat_lis()
+{
+    // Remove the subcat <li>s from the old location.
+    remove_filter('woocommerce_product_loop_start', 'woocommerce_maybe_show_product_subcategories');
+    add_action('woocommerce_before_shop_loop', 'msc_product_loop_start', 40);
+    add_action('woocommerce_before_shop_loop', 'msc_maybe_show_product_subcategories', 50);
+    add_action('woocommerce_before_shop_loop', 'msc_product_loop_end', 60);
+}
+
+//Conditonally start the product loop with a <ul> contaner if subcats exist.
+function msc_product_loop_start()
+{
+    $subcategories = woocommerce_maybe_show_product_subcategories();
+    if (is_shop($subcategories)) {
+        echo '<ul class="archive__brands">';
+    } else {
+        echo '<ul class="archive__collections">';
+    }
+}
+
+//Print the subcat <li>s in our new location.
+function msc_maybe_show_product_subcategories()
+{
+    echo woocommerce_maybe_show_product_subcategories();
+}
+
+//Conditonally end the product loop with a </ul> if subcats exist.
+function msc_product_loop_end()
+{
+    $subcategories = woocommerce_maybe_show_product_subcategories();
+    if ($subcategories) {
+        echo '</ul>';
+    }
+}

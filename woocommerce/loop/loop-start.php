@@ -19,4 +19,4 @@ if (!defined('ABSPATH')) {
     exit;
 }
 ?>
-<ul class="products">
+<ul class="archive-products">

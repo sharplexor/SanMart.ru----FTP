@@ -43,6 +43,12 @@ do_action('woocommerce_before_main_content');
  * @hooked woocommerce_product_archive_description - 10
  */
 do_action('woocommerce_archive_description');
+
+// ACF переменные
+$term = get_queried_object();
+$brand_logo = get_field('brand_logo', $term);
+$brand_description = get_field('brand_description', $term);
+
 ?>
       </header>
       <?php
@@ -61,7 +67,6 @@ if (woocommerce_product_loop()) {
     if (wc_get_loop_prop('total')) {
         while (have_posts()) {
             the_post();
-
             /**
              * Hook: woocommerce_shop_loop.
              */
@@ -87,6 +92,14 @@ if (woocommerce_product_loop()) {
      */
     do_action('woocommerce_no_products_found');
 }
+
+// ACF Бренд вывод полей
+if (!empty($brand_logo & $brand_description)):
+    echo '<div class="brand-meta">';
+    echo '<img class="brand-meta_logo" src=' . $brand_logo . '>';
+    echo '<div class="brand-meta_description">' . $brand_description . '</div>';
+    echo '</div>';
+endif;
 
 /**
  * Hook: woocommerce_after_main_content.
